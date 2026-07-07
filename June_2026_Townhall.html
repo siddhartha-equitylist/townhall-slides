@@ -110,10 +110,11 @@ h2{font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-0.025em;line
 .step.future .lb{color:var(--muted)}
 
 /* delivered grid */
-.deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.deliver .card{padding:20px}
+.deliver{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.deliver .card{padding:18px}
 .deliver .card p{font-size:13.5px}
 .deliver .card li{font-size:13.5px;margin-bottom:7px}
+.deliver .card .lead{font-size:16px}
 
 /* quality slide */
 .qwrap{display:grid;grid-template-columns:290px 1fr;gap:52px;align-items:center}
@@ -136,6 +137,33 @@ h2{font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-0.025em;line
 .barfill{height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--primary),#8b79ff);transition:width 1.1s var(--ease);transition-delay:var(--bd,0s)}
 .slide.active .barfill{width:var(--w)}
 .barrow .val{font-size:16px;font-weight:700;color:var(--ink)}
+
+/* engineering numbers */
+.engnums{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.engnum{min-height:190px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.engnum::after{content:"";position:absolute;right:-34px;bottom:-34px;width:110px;height:110px;border-radius:50%;background:rgba(95,70,255,.08)}
+.engnum .n{font-size:clamp(42px,5vw,68px);font-weight:700;letter-spacing:-0.05em;line-height:.9;color:var(--ink)}
+.engnum .l{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);line-height:1.35}
+.engnum .s{font-size:13px;color:var(--muted);line-height:1.45;margin-top:10px;position:relative;z-index:1}
+
+/* copilot */
+.copilot-wrap{display:grid;grid-template-columns:0.95fr 1.05fr;gap:44px;align-items:center}
+.copilot-hero{border:1px solid rgba(95,70,255,.22);border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(95,70,255,.1),rgba(95,70,255,.02));padding:34px;box-shadow:var(--shadow-lg)}
+.copilot-hero .name{font-size:clamp(32px,4vw,54px);font-weight:700;letter-spacing:-0.04em;line-height:1;color:var(--ink)}
+.copilot-hero .desc{font-size:16px;color:var(--muted);line-height:1.55;margin-top:16px}
+.copilot-cards{display:grid;gap:14px}
+.copilot-card{display:flex;gap:14px;padding:18px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg);box-shadow:var(--shadow)}
+.copilot-card .ico{width:40px;height:40px;flex:none;border-radius:11px;background:rgba(95,70,255,.09);display:flex;align-items:center;justify-content:center;color:var(--primary)}
+.copilot-card h3{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.02em}
+.copilot-card p{font-size:13.5px;color:var(--muted);line-height:1.45;margin-top:3px}
+
+/* platform hardening */
+.hardening{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hard-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;background:var(--bg);box-shadow:var(--shadow);min-height:260px;display:flex;flex-direction:column}
+.hard-card .num{font-size:13px;font-weight:700;color:var(--primary);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.hard-card h3{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-0.03em;line-height:1.15;margin-bottom:10px}
+.hard-card p{font-size:14px;color:var(--muted);line-height:1.55}
+.hard-card .tag{margin-top:auto;align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--primary);background:rgba(95,70,255,.09);border-radius:100px;padding:6px 10px}
 
 /* intercom */
 .icwrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
@@ -248,7 +276,7 @@ body.on-dark .topbar{background:rgba(255,255,255,.2)}
 body.on-dark .topbar .fill{background:#fff}
 
 @media (max-width:860px){
-  .g-3,.reasons,.deliver,.metricrow,.next-cols,.qwrap,.icwrap,.timeline,.whywrap{grid-template-columns:1fr}
+  .g-3,.reasons,.deliver,.metricrow,.next-cols,.qwrap,.icwrap,.timeline,.whywrap,.engnums,.copilot-wrap,.hardening{grid-template-columns:1fr}
   .barrow{grid-template-columns:140px 1fr 26px}
   .dots-nav{display:none}
   .metricrow{grid-template-columns:1fr 1fr}
@@ -385,6 +413,8 @@ body.on-dark .topbar .fill{background:#fff}
         <div class="card reveal" style="--d:.42s"><div class="k"><svg class="ic"><use href="#i-shield"/></svg>Compliance &amp; control</div><ul><li>SSO and Google login audit tracking</li><li>CML documents set to view only</li><li>Bulk signature requests archived</li></ul></div>
         <div class="card reveal" style="--d:.48s"><div class="k"><svg class="ic"><use href="#i-doc"/></svg>Reports</div><ul><li>Subsidiary report access</li><li>Expense report summary</li></ul></div>
         <div class="card reveal" style="--d:.54s"><div class="k"><svg class="ic"><use href="#i-users"/></svg>For customers</div><div class="lead">9 data ops · 3 enterprise customers</div><p>Demat accounts, grants and login access handled for thousands of employees.</p></div>
+        <div class="card reveal" style="--d:.6s"><div class="k"><svg class="ic"><use href="#i-link"/></svg>API v1, grown up</div><p>Scheme, plan and template endpoints, subsidiary routing, employee filters, and a redesigned reference.</p></div>
+        <div class="card reveal" style="--d:.66s"><div class="k"><svg class="ic"><use href="#i-refresh"/></svg>Carta migration service</div><p>A structured importer for companies moving off Carta.</p></div>
       </div>
     </div>
   </section>
@@ -427,7 +457,61 @@ body.on-dark .topbar .fill{background:#fff}
     </div>
   </section>
 
-  <!-- SLIDE 7 — WHAT'S NEXT -->
+  <!-- SLIDE 7 — ENGINEERING NUMBERS -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="eyebrow reveal" style="--d:.05s">Engineering view</div>
+        <h2 class="reveal" style="--d:.12s">More numbers from the month</h2>
+        <div class="sub reveal" style="--d:.18s">Outside the sprint lens, this is the broader engineering throughput for June.</div>
+      </div>
+      <div class="engnums">
+        <div class="engnum reveal" style="--d:.24s"><div class="n" data-count="182">0</div><div><div class="l">Commits merged</div></div></div>
+        <div class="engnum reveal" style="--d:.3s"><div class="n" data-count="55">0</div><div><div class="l">Ships</div></div></div>
+        <div class="engnum reveal" style="--d:.36s"><div class="n">60+</div><div><div class="l">Bug fixes</div></div></div>
+        <div class="engnum reveal" style="--d:.42s"><div class="n" data-count="12">0</div><div><div class="l">Customer deliveries</div><div class="s">Swiggy · Angel One · more</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8 — EQUITY COPILOT -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="eyebrow reveal" style="--d:.05s">AI CoPilot</div>
+        <h2 class="reveal" style="--d:.12s">Equity CoPilot</h2>
+      </div>
+      <div class="copilot-wrap">
+        <div class="copilot-hero reveal" style="--d:.2s">
+          <div class="name">Reports, navigation, actions</div>
+          <div class="desc">Full report catalog in chat, in-app navigation, and write actions behind explicit confirmation. Followed by demo.</div>
+        </div>
+        <div class="copilot-cards">
+          <div class="copilot-card reveal" style="--d:.28s"><div class="ico"><svg class="ic"><use href="#i-doc"/></svg></div><div><h3>Report catalog in chat</h3><p>Ask for the report you need and get guided to the right output.</p></div></div>
+          <div class="copilot-card reveal" style="--d:.36s"><div class="ico"><svg class="ic"><use href="#i-layout"/></svg></div><div><h3>In-app navigation</h3><p>Move through the product by intent, not by hunting through menus.</p></div></div>
+          <div class="copilot-card reveal" style="--d:.44s"><div class="ico"><svg class="ic"><use href="#i-check"/></svg></div><div><h3>Confirmed write actions</h3><p>AI can prepare actions, but execution waits for explicit user confirmation.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9 — PLATFORM HARDENING -->
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="slide-head">
+        <div class="eyebrow reveal" style="--d:.05s">Platform hardening</div>
+        <h2 class="reveal" style="--d:.12s">Authorization gaps closed before anyone found them</h2>
+        <div class="sub reveal" style="--d:.18s">Plus the observability to see the next one coming.</div>
+      </div>
+      <div class="hardening">
+        <div class="hard-card reveal" style="--d:.24s"><div class="num">01</div><h3>REST &amp; mobile authz gaps closed</h3><p>API v1 authorization sweep; mobile auth-bypass fixed; case-insensitive OTP with a lockout budget.</p><div class="tag">platform-wide</div></div>
+        <div class="hard-card reveal" style="--d:.32s"><div class="num">02</div><h3>CCD IDOR + SAFE owner lockout fixed</h3><p>Shareholder instrument policies tightened; Rails, puma and JWT security patches landed.</p><div class="tag">defense-in-depth</div></div>
+        <div class="hard-card reveal" style="--d:.4s"><div class="num">03</div><h3>Full-stack observability landed</h3><p>Sentry source maps, logs to Loki / Grafana, Prometheus metrics, plus 4,500 lines of new test coverage.</p><div class="tag">we can see now</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10 — WHAT'S NEXT -->
   <section class="slide">
     <div class="slide-inner">
       <div class="slide-head">
@@ -441,6 +525,8 @@ body.on-dark .topbar .fill{background:#fff}
           <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-coins"/></svg></div><div><div class="nt">Option Pool Amendment</div><div class="nd">A governed flow to change the pool that flows through to cap table and reports.</div></div></div>
           <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-card"/></svg></div><div><div class="nt">Partial Payments in Exercise</div><div class="nd">Split large exercise costs across instalments without blocking the exercise.</div></div></div>
           <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-refresh"/></svg></div><div><div class="nt">Rehire Workflow</div><div class="nd">Handle grant continuity, vesting restarts and record linkage properly.</div></div></div>
+          <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-chart"/></svg></div><div><div class="nt">Fundraising OS</div><div class="nd">Round initialisation, overview dashboard, investor discovery.</div></div></div>
+          <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-sparkle"/></svg></div><div><div class="nt">Equity CoPilot, deeper</div><div class="nd">Toward AI-native, end-to-end equity operations.</div></div></div>
         </div>
         <div class="next-col reveal" style="--d:.34s">
           <h4><svg class="ic"><use href="#i-trending"/></svg>The bigger bets</h4>
@@ -448,11 +534,12 @@ body.on-dark .topbar .fill{background:#fff}
           <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-wallet"/></svg></div><div><div class="nt">Total Compensation &amp; Invoicing</div><div class="nd">Fixed, variable and equity in one workspace, plus automated billing on the admin layer.</div></div></div>
           <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-link"/></svg></div><div><div class="nt">First HRMS integration: SAP SuccessFactors</div><div class="nd">Employee data flows in, comp data flows back. Starting with Swiggy.</div></div></div>
           <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-chart"/></svg></div><div><div class="nt">Product building grounded in data</div><div class="nd">PostHog, Intercom analytics and structured support signal informing decisions.</div></div></div>
+          <div class="next-item"><div class="ico"><svg class="ic"><use href="#i-card"/></svg></div><div><div class="nt">SAR exercise experience, reworked</div><div class="nd">Exercise flow rebuilt on customer feedback.</div></div></div>
         </div>
       </div>
     </div>
   </section>
-  <!-- SLIDE 8 — INTERNAL INTERCOM TOOL -->
+  <!-- SLIDE 11 — INTERNAL INTERCOM TOOL -->
   <section class="slide">
     <div class="slide-inner">
       <div class="slide-head">
