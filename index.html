@@ -92,7 +92,7 @@ h2{font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-0.025em;line
 .ring{position:relative;display:flex;align-items:center;justify-content:center}
 .ring .pctlabel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-0.03em}
 
-.metricrow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.metricrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .metric{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;transition:transform .3s var(--ease),border-color .3s var(--ease);position:relative}
 .metric:hover{transform:translateY(-4px);border-color:rgba(95,70,255,.4)}
 .metric .ic{position:absolute;top:16px;right:16px;width:20px;height:20px;color:var(--primary);opacity:.85}
@@ -169,7 +169,9 @@ h2{font-size:clamp(26px,3.4vw,42px);font-weight:700;letter-spacing:-0.025em;line
 .shot .placeholder code{font-size:11.5px;background:rgba(95,70,255,.1);color:var(--primary);padding:2px 8px;border-radius:5px;font-family:ui-monospace,monospace}
 
 /* slide 2 two-column */
-.whywrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:44px;align-items:center}
+.whywrap{display:grid;grid-template-columns:0.75fr 1.25fr;gap:36px;align-items:stretch}
+.whywrap .shot{min-height:clamp(420px,58vh,620px);display:flex;flex-direction:column}
+.whywrap .shot img{flex:1;height:100%;object-fit:cover;object-position:top left}
 .reasons-col{display:flex;flex-direction:column;gap:14px}
 .reason-row{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg);box-shadow:var(--shadow);transition:transform .3s var(--ease),border-color .3s var(--ease)}
 .reason-row:hover{transform:translateX(4px);border-color:rgba(95,70,255,.4)}
@@ -313,9 +315,9 @@ body.on-dark .topbar .fill{background:#fff}
       </div>
       <div class="whywrap">
         <div class="reasons-col">
-          <div class="reason-row reveal" style="--d:.26s"><div class="ico"><svg class="ic"><use href="#i-target"/></svg></div><div><h3>Predictability</h3><p>Every ticket has an owner, a priority, and a sprint home before work starts.</p></div></div>
-          <div class="reason-row reveal" style="--d:.34s"><div class="ico"><svg class="ic"><use href="#i-gauge"/></svg></div><div><h3>Effort estimation</h3><p>The team forecasts and tracks against a plan, not just a growing backlog.</p></div></div>
-          <div class="reason-row reveal" style="--d:.42s"><div class="ico"><svg class="ic"><use href="#i-checklist"/></svg></div><div><h3>Structure vs. commitments</h3><p>Customer asks get weighed against sprint capacity, instead of absorbed ad hoc.</p></div></div>
+          <div class="reason-row reveal" style="--d:.26s"><div class="ico"><svg class="ic"><use href="#i-target"/></svg></div><div><h3>Structured tasks for dev</h3><p>Work reaches engineering with clearer scope, ownership, and priority before it starts.</p></div></div>
+          <div class="reason-row reveal" style="--d:.34s"><div class="ico"><svg class="ic"><use href="#i-gauge"/></svg></div><div><h3>Clear goal-based sprints</h3><p>Each sprint has a focused goal, so the team can plan around outcomes instead of loose lists.</p></div></div>
+          <div class="reason-row reveal" style="--d:.42s"><div class="ico"><svg class="ic"><use href="#i-checklist"/></svg></div><div><h3>Reduced ad hocs</h3><p>Incoming asks get weighed against sprint commitments instead of interrupting the flow.</p></div></div>
         </div>
         <div class="shot reveal" style="--d:.4s">
           <div class="bar-top"><i></i><i></i><i></i></div>
@@ -348,7 +350,6 @@ body.on-dark .topbar .fill{background:#fff}
         <div class="metric reveal" style="--d:.42s"><svg class="ic"><use href="#i-ticket"/></svg><div class="mn" data-count="65">0</div><div class="ml">Sprint tickets in total</div></div>
         <div class="metric reveal" style="--d:.48s"><svg class="ic"><use href="#i-bug"/></svg><div class="mn" data-count="27">0</div><div class="ml">Bugs resolved</div></div>
         <div class="metric reveal" style="--d:.54s"><svg class="ic"><use href="#i-users"/></svg><div class="mn" data-count="9">0</div><div class="ml">Customer data operations</div></div>
-        <div class="metric reveal" style="--d:.6s"><svg class="ic"><use href="#i-check"/></svg><div class="mn" data-count="114" data-prefix="~">0</div><div class="ml">Total June deliverables</div></div>
       </div>
     </div>
   </section>
@@ -359,7 +360,7 @@ body.on-dark .topbar .fill{background:#fff}
       <div class="slide-head">
         <div class="eyebrow reveal" style="--d:.05s">The direction</div>
         <h2 class="reveal" style="--d:.12s">Finding our rhythm</h2>
-        <div class="sub reveal" style="--d:.18s">This is not about doing more each sprint. It is about doing it with more structure. With each cycle we get a clearer view of what is in flight and a firmer grip on how we plan and commit. The foundation is set, and it keeps getting sharper.</div>
+        <div class="sub reveal" style="--d:.18s">With each cycle we get a clearer view of what is in flight and a firmer grip on how we plan and commit. The foundation is set, and it keeps getting sharper.</div>
       </div>
       <div class="journey">
         <div class="jnode reveal" style="--d:.3s"><div class="jline"></div><div class="jdot"><svg class="ic"><use href="#i-check"/></svg></div><h3>Sprint 0</h3><p>Proved the framework works.</p></div>
@@ -382,7 +383,7 @@ body.on-dark .topbar .fill{background:#fff}
         <div class="card reveal" style="--d:.3s"><div class="k"><svg class="ic"><use href="#i-layers"/></svg>Platform releases</div><ul><li>Shared Equity Awards Dashboard</li><li>Equity Awards Reporting UI</li><li>Exercise Settings UI</li></ul></div>
         <div class="card reveal" style="--d:.36s"><div class="k"><svg class="ic"><use href="#i-mail"/></svg>Employee experience</div><ul><li>Vesting pause and termination emails</li><li>Revamped Grants list page</li><li>FMV shown only where it applies</li></ul></div>
         <div class="card reveal" style="--d:.42s"><div class="k"><svg class="ic"><use href="#i-shield"/></svg>Compliance &amp; control</div><ul><li>SSO and Google login audit tracking</li><li>CML documents set to view only</li><li>Bulk signature requests archived</li></ul></div>
-        <div class="card reveal" style="--d:.48s"><div class="k"><svg class="ic"><use href="#i-doc"/></svg>Reports</div><ul><li>Subsidiary report access</li><li>SAR scheme PDF upload</li><li>Expense report summary</li></ul></div>
+        <div class="card reveal" style="--d:.48s"><div class="k"><svg class="ic"><use href="#i-doc"/></svg>Reports</div><ul><li>Subsidiary report access</li><li>Expense report summary</li></ul></div>
         <div class="card reveal" style="--d:.54s"><div class="k"><svg class="ic"><use href="#i-users"/></svg>For customers</div><div class="lead">9 data ops · 3 enterprise customers</div><p>Demat accounts, grants and login access handled for thousands of employees.</p></div>
       </div>
     </div>
